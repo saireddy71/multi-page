@@ -6,10 +6,6 @@
   // Elements
   const intro = document.getElementById('intro');
   const openGiftBtn = document.getElementById('openGiftBtn');
-  const editNameBtn = document.getElementById('editNameBtn');
-  const nameForm = document.getElementById('nameForm');
-  const recipientInput = document.getElementById('recipientName');
-  const saveNameBtn = document.getElementById('saveNameBtn');
 
   const recipientSpan = document.getElementById('recipient');
   const clockEl = document.getElementById('clock');
@@ -91,19 +87,6 @@
     intro.style.display = 'none';
     document.getElementById('main').focus();
     start();
-  });
-
-  editNameBtn.addEventListener('click', () => {
-    // toggle form display
-    nameForm.style.display = nameForm.style.display === 'block' ? 'none' : 'block';
-    recipientInput.value = localStorage.getItem('goodMorningName') || '';
-    recipientInput.focus();
-  });
-
-  saveNameBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const v = recipientInput.value.trim();
-    if(v){ setName(v); nameForm.style.display = 'none'; }
   });
 
   complimentBtn.addEventListener('click', showCompliment);
