@@ -60,7 +60,7 @@ body{
 .card{background:var(--card-bg); border-radius:var(--radius); padding:20px; color:white; margin:18px 0; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.12)}
 .hero{text-align:center}
 .lead{opacity:0.95}
-.meta-row{display:flex;gap:12px;justify-content:center;margin-top:12px;align-items:center}
+.meta-row{display:flex;gap:12px;justify-content:center;margin-top:12px;margin-bottom:32px;align-items:center}
 .clock{font-weight:600}
 .days{opacity:0.9}
 
