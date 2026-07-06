@@ -13,12 +13,6 @@
   const complimentBtn = document.getElementById('complimentBtn');
   const surpriseBtn = document.getElementById('surpriseBtn');
   const messageEl = document.getElementById('message');
-  const shareBtn = document.getElementById('shareBtn');
-
-  const shareDialog = document.getElementById('shareDialog');
-  const shareUrlInput = document.getElementById('shareUrl');
-  const copyBtn = document.getElementById('copyBtn');
-  const closeShare = document.getElementById('closeShare');
 
   const msgs = [
     "🌸 You are my favorite kind of beautiful.",
@@ -66,22 +60,6 @@
     messageEl.textContent = "🌷 Just like flowers bloom, my feelings for you grow every day.";
   }
 
-  // Share
-  function openShare(){
-    const currentName = getName();
-    // include message excerpt and name in url
-    const url = new URL(location.href);
-    url.searchParams.set('name', currentName);
-    shareUrlInput.value = url.toString();
-    shareDialog.style.display = 'flex';
-    shareDialog.setAttribute('aria-hidden','false');
-    copyBtn.focus();
-  }
-  function closeShareDialog(){
-    shareDialog.style.display = 'none';
-    shareDialog.setAttribute('aria-hidden','true');
-  }
-
   // Event wiring
   openGiftBtn.addEventListener('click', () => {
     intro.style.display = 'none';
@@ -91,19 +69,6 @@
 
   complimentBtn.addEventListener('click', showCompliment);
   surpriseBtn.addEventListener('click', showSurprise);
-  shareBtn.addEventListener('click', openShare);
-
-  copyBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(shareUrlInput.value);
-      copyBtn.textContent = 'Copied!';
-      setTimeout(()=> copyBtn.textContent = 'Copy', 1500);
-    } catch (err) {
-      copyBtn.textContent = 'Unable to copy';
-    }
-  });
-
-  closeShare.addEventListener('click', closeShareDialog);
 
   // Ripple effect for buttons (delegated)
   document.addEventListener('click', (e) => {
