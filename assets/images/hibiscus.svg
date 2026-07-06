@@ -1,5 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
-  <rect width="64" height="64" rx="12" fill="#FFF7F3"/>
-  <path d="M32 14c7 0 12 5 12 11s-5 11-12 11-12-5-12-11 5-11 12-11z" fill="#FF6B6B"/>
-  <circle cx="32" cy="36" r="3" fill="#FFD166"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <defs>
+    <linearGradient id="hibiscusGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4d7d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hibiscusGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8ab3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="stamenGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="stemGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d5016;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d7a1f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stem -->
+  <path d="M 100 140 Q 98 165 96 200" stroke="url(#stemGrad4)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Leaves -->
+  <ellipse cx="72" cy="170" rx="13" ry="19" fill="#2d5016" transform="rotate(-50 72 170)"/>
+  <ellipse cx="128" cy="175" rx="13" ry="19" fill="#3d7a1f" transform="rotate(50 128 175)"/>
+  
+  <!-- Outer petals (darker pink) -->
+  <ellipse cx="100" cy="45" rx="18" ry="32" fill="url(#hibiscusGrad1)" opacity="0.95" transform="rotate(0 100 45)"/>
+  <ellipse cx="100" cy="45" rx="18" ry="32" fill="url(#hibiscusGrad1)" opacity="0.88" transform="rotate(72 100 45)"/>
+  <ellipse cx="100" cy="45" rx="18" ry="32" fill="url(#hibiscusGrad1)" opacity="0.82" transform="rotate(144 100 45)"/>
+  <ellipse cx="100" cy="45" rx="18" ry="32" fill="url(#hibiscusGrad1)" opacity="0.88" transform="rotate(216 100 45)"/>
+  <ellipse cx="100" cy="45" rx="18" ry="32" fill="url(#hibiscusGrad1)" opacity="0.95" transform="rotate(288 100 45)"/>
+  
+  <!-- Inner petals (lighter pink) -->
+  <ellipse cx="100" cy="65" rx="15" ry="26" fill="url(#hibiscusGrad2)" opacity="0.95" transform="rotate(36 100 65)"/>
+  <ellipse cx="100" cy="65" rx="15" ry="26" fill="url(#hibiscusGrad2)" opacity="0.9" transform="rotate(108 100 65)"/>
+  <ellipse cx="100" cy="65" rx="15" ry="26" fill="url(#hibiscusGrad2)" opacity="0.95" transform="rotate(180 100 65)"/>
+  <ellipse cx="100" cy="65" rx="15" ry="26" fill="url(#hibiscusGrad2)" opacity="0.9" transform="rotate(252 100 65)"/>
+  <ellipse cx="100" cy="65" rx="15" ry="26" fill="url(#hibiscusGrad2)" opacity="0.95" transform="rotate(324 100 65)"/>
+  
+  <!-- Stamen tube -->
+  <ellipse cx="100" cy="95" rx="6" ry="18" fill="#f5e6d3"/>
+  
+  <!-- Stamen brush -->
+  <circle cx="100" cy="82" r="8" fill="url(#stamenGrad)"/>
+  <line x1="95" y1="82" x2="92" y2="75" stroke="#ffed4e" stroke-width="1.5"/>
+  <line x1="105" y1="82" x2="108" y2="75" stroke="#ffd700" stroke-width="1.5"/>
+  <line x1="100" y1="82" x2="100" y2="72" stroke="#ffed4e" stroke-width="1.5"/>
+  <line x1="98" y1="82" x2="93" y2="72" stroke="#ffd700" stroke-width="1.5"/>
 </svg>
