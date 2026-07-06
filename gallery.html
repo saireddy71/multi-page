@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Good Morning — Gallery</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/images/favicon.svg" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">🌸 Good Morning</a>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" role="main">
+    <article class="card">
+      <h1>Gallery</h1>
+      <p>Memories and photos. Click a card to open a larger view.</p>
+
+      <div class="gallery-grid" role="list">
+        <figure class="gallery-item" role="listitem" tabindex="0" data-title="A bright morning" data-src="assets/images/rose.svg">
+          <img src="assets/images/rose.svg" alt="Rose" />
+          <figcaption>Rose</figcaption>
+        </figure>
+
+        <figure class="gallery-item" role="listitem" tabindex="0" data-title="Sunny day" data-src="assets/images/sunflower.svg">
+          <img src="assets/images/sunflower.svg" alt="Sunflower" />
+          <figcaption>Sunflower</figcaption>
+        </figure>
+
+        <figure class="gallery-item" role="listitem" tabindex="0" data-title="Calm blossoms" data-src="assets/images/cherry.svg">
+          <img src="assets/images/cherry.svg" alt="Cherry blossom" />
+          <figcaption>Cherry Blossom</figcaption>
+        </figure>
+      </div>
+    </article>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <small>© <span id="yearGallery"></span> Good Morning — built with care</small>
+    </div>
+  </footer>
+
+  <script>
+  // Simple lightbox handlers
+  (function(){
+    const items = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const cap = document.getElementById('lightboxCaption');
+    const close = document.querySelector('.lightbox-close');
+
+    function open(src, title, alt){
+      img.src = src;
+      img.alt = alt || title;
+      cap.textContent = title || '';
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden','false');
+      close.focus();
+    }
+
+    function closeBox(){
+      lightbox.style.display = 'none';
+      lightbox.setAttribute('aria-hidden','true');
+    }
+
+    items.forEach(it=>{
+      it.addEventListener('click', ()=> open(it.dataset.src, it.dataset.title, it.querySelector('img').alt));
+      it.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') open(it.dataset.src, it.dataset.title, it.querySelector('img').alt); });
+    });
+
+    close.addEventListener('click', closeBox);
+    lightbox.addEventListener('click', (e)=> { if(e.target === lightbox) closeBox(); });
+    document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeBox(); });
+
+    document.getElementById('yearGallery').textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
