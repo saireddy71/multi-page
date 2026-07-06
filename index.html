@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Good Morning — Home</title>
+
+  <!-- Basic SEO / Social -->
+  <meta name="description" content="A warm, interactive good-morning site with personalized messages, gallery and story." />
+  <meta property="og:title" content="Good Morning Surprise" />
+  <meta property="og:description" content="A warm, interactive good-morning site with personalized messages, gallery and story." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/images/favicon.svg" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner" aria-label="Main header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Good Morning Home">🌸 Good Morning</a>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Intro overlay -->
+  <div id="intro" class="overlay" role="dialog" aria-modal="true" aria-label="Intro dialog">
+    <div class="overlay-inner">
+      <h1 id="introTitle">🌸 I made something special for you 🌷</h1>
+      <p id="introSubtitle">A small surprise to start your day.</p>
+
+      <div class="controls">
+        <button id="openGiftBtn" class="btn primary" aria-haspopup="false">Open Your Surprise 💖</button>
+        <button id="editNameBtn" class="btn">Edit Name</button>
+      </div>
+
+      <form id="nameForm" class="name-form" aria-hidden="true">
+        <label for="recipientName">Enter name</label>
+        <div class="name-row">
+          <input id="recipientName" name="recipientName" type="text" maxlength="40" placeholder="e.g., Malik" />
+          <button id="saveNameBtn" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <main id="main" class="wrap" role="main" aria-labelledby="greeting" tabindex="-1">
+    <section class="hero card" aria-labelledby="greeting">
+      <h2 id="greeting">🌸 Good Morning, <span id="recipient">Friend</span> 🌷</h2>
+      <p class="lead">I hope your day starts with a smile — you make my world brighter.</p>
+
+      <div class="meta-row" role="region" aria-label="Time and days">
+        <div class="clock" id="clock" aria-live="polite"></div>
+        <div class="days" id="daysCounter" aria-live="polite"></div>
+      </div>
+
+      <div class="actions">
+        <button id="complimentBtn" class="btn">Why You're Amazing ✨</button>
+        <button id="surpriseBtn" class="btn">Bloom a Flower 🌷</button>
+        <button id="shareBtn" class="btn">Share</button>
+      </div>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </section>
+
+    <section class="card flowers" aria-labelledby="flowersTitle">
+      <h3 id="flowersTitle">🌷 Flowers That Remind Me of You</h3>
+      <div class="flower-grid" role="list">
+        <article class="flower-card" role="listitem" tabindex="0">
+          <img src="assets/images/rose.svg" alt="Rose illustration" />
+          <h4>Rose</h4>
+          <p>Timeless beauty that never goes unnoticed.</p>
+        </article>
+
+        <article class="flower-card" role="listitem" tabindex="0">
+          <img src="assets/images/sunflower.svg" alt="Sunflower illustration" />
+          <h4>Sunflower</h4>
+          <p>Always bright, always spreading warmth.</p>
+        </article>
+
+        <article class="flower-card" role="listitem" tabindex="0">
+          <img src="assets/images/cherry.svg" alt="Cherry blossom illustration" />
+          <h4>Cherry Blossom</h4>
+          <p>Soft, rare, and beautifully calming.</p>
+        </article>
+
+        <article class="flower-card" role="listitem" tabindex="0">
+          <img src="assets/images/hibiscus.svg" alt="Hibiscus illustration" />
+          <h4>Hibiscus</h4>
+          <p>Bold, graceful, and full of life.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card story" aria-labelledby="storyTitle">
+      <h3 id="storyTitle">📖 Our Story</h3>
+      <p>Every day with you feels like a new blooming flower. Add your own memories in the Gallery.</p>
+      <p><a href="about.html" class="link">Read our full story</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <small>© <span id="year"></span> Good Morning — built with care</small>
+    </div>
+  </footer>
+
+  <!-- Light-accessible hidden share dialog -->
+  <div id="shareDialog" class="dialog" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="dialog-inner">
+      <h4>Share this page</h4>
+      <p>Copy a friendly link with the current name and message:</p>
+      <input id="shareUrl" readonly />
+      <div class="dialog-actions">
+        <button id="copyBtn" class="btn">Copy</button>
+        <button id="closeShare" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
