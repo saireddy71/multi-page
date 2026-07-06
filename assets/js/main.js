@@ -1,6 +1,6 @@
 // Main interactions: personalization, clock, days counter, compliments, share, accessibility
 (() => {
-  const DEFAULT_NAME = 'Friend';
+  const DEFAULT_NAME = 'Malik';
   const START_DATE_ISO = '2025-12-05'; // original start date
 
   // Elements
