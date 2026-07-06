@@ -1,0 +1,100 @@
+:root{
+  --bg-1: #ffdde1;
+  --bg-2: #ee9ca7;
+  --bg-3: #d4fc79;
+  --bg-4: #96e6a1;
+  --text: #1f2937;
+  --muted: rgba(0,0,0,0.55);
+  --card-bg: rgba(255,255,255,0.12);
+  --glass: rgba(255,255,255,0.08);
+  --accent: #ff4f81;
+  --radius: 14px;
+  --max-width: 1000px;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  background: linear-gradient(-45deg,var(--bg-1),var(--bg-2),var(--bg-3),var(--bg-4));
+  background-size:400% 400%;
+  animation:gradient 15s ease infinite;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+}
+
+@keyframes gradient{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Layout */
+.wrap{max-width:var(--max-width);margin:0 auto;padding:22px}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.site-header{backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-bottom:1px solid rgba(255,255,255,0.06)}
+.brand{font-weight:700;color:white;text-decoration:none;font-size:1.05rem;padding:8px 0}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center}
+.nav-list a{color:white;text-decoration:none;padding:8px;border-radius:8px}
+.nav-list a:hover, .nav-list a[aria-current="page"]{background:rgba(255,255,255,0.08)}
+
+/* Accessible skip link */
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:10px;top:10px;width:auto;height:auto;padding:8px;background:#000;color:#fff;z-index:999;}
+
+/* Cards & hero */
+.card{background:var(--card-bg); border-radius:var(--radius); padding:20px; color:white; margin:18px 0; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.hero{text-align:center}
+.lead{opacity:0.95}
+.meta-row{display:flex;gap:12px;justify-content:center;margin-top:12px;align-items:center}
+.clock{font-weight:600}
+.days{opacity:0.9}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:0;background:white;color:var(--accent);font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:all .18s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.18)}
+.btn.primary{background:var(--accent);color:white;box-shadow:0 8px 26px rgba(255,79,129,0.18)}
+
+/* overlay intro */
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);backdrop-filter: blur(8px);z-index:999}
+.overlay-inner{background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));padding:28px;border-radius:18px;text-align:center;color:white;max-width:520px;box-shadow:0 20px 60px rgba(0,0,0,0.35)}
+.name-form{margin-top:12px;display:none}
+.name-row{display:flex;gap:8px;justify-content:center;align-items:center}
+.name-row input{padding:8px 12px;border-radius:10px;border:0;min-width:160px}
+.name-row label{display:block;margin-bottom:6px;color:rgba(255,255,255,0.9)}
+
+/* Flowers grid */
+.flower-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:14px}
+.flower-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));text-align:center;color:white;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
+.flower-card:hover, .flower-card:focus{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.25)}
+.flower-card img{width:64px;height:64px;margin-bottom:10px}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.gallery-item{background:var(--glass);border-radius:12px;padding:8px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.06)}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);z-index:1000}
+.lightbox img{max-width:80vw;max-height:80vh;border-radius:10px}
+.lightbox-close{position:absolute;right:20px;top:20px;background:transparent;color:white;border:0;font-size:1.4rem;cursor:pointer}
+
+/* Dialogs */
+.dialog{display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);z-index:1000}
+.dialog-inner{background:white;color:var(--text);padding:16px;border-radius:12px;width:min(480px,90%);}
+
+/* footer */
+.site-footer{padding:16px 0;color:white;opacity:0.95;text-align:center}
+
+/* responsive */
+@media (max-width:700px){
+  .header-inner{flex-direction:row;gap:10px}
+  .nav-list{gap:8px}
+}
+
+/* prefers reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none;transition:none}
+}
