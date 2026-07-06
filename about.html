@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Good Morning — Our Story</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/images/favicon.svg" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">🌸 Good Morning</a>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">Our Story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" role="main">
+    <article class="card">
+      <h1>Our Story</h1>
+      <p>This page is a space to add memories, timelines, photos, and notes that make our relationship unique. You can extend it with a timeline, photos, or quotes.</p>
+
+      <section aria-labelledby="timelineTitle">
+        <h2 id="timelineTitle">Timeline</h2>
+        <ul class="timeline">
+          <li><time>2025-12-05</time> — The day our memories began.</li>
+          <li><time>2026-01-14</time> — A memorable morning.</li>
+        </ul>
+        <p>Want to add entries? Edit the page or author a new small JSON file to load dynamic content.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <small>© <span id="yearAbout"></span> Good Morning — built with care</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yearAbout').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
