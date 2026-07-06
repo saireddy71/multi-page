@@ -32,6 +32,17 @@ body{
   100%{background-position:0% 50%;}
 }
 
+/* Flower floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
 /* Layout */
 .wrap{max-width:var(--max-width);margin:0 auto;padding:22px}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
@@ -54,13 +65,19 @@ body{
 .days{opacity:0.9}
 
 /* Buttons */
-.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:0;background:white;color:var(--accent);font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:all .18s ease}
+.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:0;background:white;color:var(--accent);font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:all .3s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}
 .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.18)}
 .btn.primary{background:var(--accent);color:white;box-shadow:0 8px 26px rgba(255,79,129,0.18)}
 
+/* Ripple effect */
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.5);transform:scale(0);animation:ripple-out .6s ease-out}
+@keyframes ripple-out{
+  to{transform:scale(4);opacity:0}
+}
+
 /* overlay intro */
 .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);backdrop-filter: blur(8px);z-index:999}
-.overlay-inner{background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));padding:28px;border-radius:18px;text-align:center;color:white;max-width:520px;box-shadow:0 20px 60px rgba(0,0,0,0.35)}
+.overlay-inner{background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));padding:28px;border-radius:18px;text-align:center;color:white;max-width:520px;box-shadow:0 20px 60px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.1)}
 .name-form{margin-top:12px;display:none}
 .name-row{display:flex;gap:8px;justify-content:center;align-items:center}
 .name-row input{padding:8px 12px;border-radius:10px;border:0;min-width:160px}
@@ -68,9 +85,13 @@ body{
 
 /* Flowers grid */
 .flower-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:14px}
-.flower-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));text-align:center;color:white;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
+.flower-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));text-align:center;color:white;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease;animation: float 4s ease-in-out infinite, sway 5s ease-in-out infinite}
+.flower-card:nth-child(2){animation-delay: 0.3s}
+.flower-card:nth-child(3){animation-delay: 0.6s}
+.flower-card:nth-child(4){animation-delay: 0.9s}
 .flower-card:hover, .flower-card:focus{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.25)}
-.flower-card img{width:64px;height:64px;margin-bottom:10px}
+.flower-card img{width:64px;height:64px;margin-bottom:10px;transition: transform .3s ease}
+.flower-card:hover img{transform: scale(1.1) rotate(5deg)}
 
 /* Gallery */
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
